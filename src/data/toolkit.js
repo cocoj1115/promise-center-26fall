@@ -18,13 +18,13 @@ export const ROUTINES = [
 ];
 
 export const ZONES = [
-  { num: 1, slug: 'listen', name: 'Listen', blurb: 'Find a real need by asking and watching.', map: [150, 110] },
+  { num: 1, slug: 'listen', name: 'Listen', blurb: 'Find a real need by asking and watching.', map: [160, 110] },
   { num: 2, slug: 'explore', name: 'Explore', blurb: 'Try tools hands-on before choosing one.', map: [430, 160] },
-  { num: 3, slug: 'ideate', name: 'Ideate', blurb: 'Narrow to one cause and sketch ways to help.', map: [700, 95] },
-  { num: 4, slug: 'prototype', name: 'Prototype', blurb: 'Try the idea cheaply before building it.', map: [700, 300] },
+  { num: 3, slug: 'ideate', name: 'Ideate', blurb: 'Narrow to one cause and sketch ways to help.', map: [700, 100] },
+  { num: 4, slug: 'prototype', name: 'Prototype', blurb: 'Try the idea cheaply before building it.', map: [690, 300] },
   { num: 5, slug: 'build', name: 'Build', blurb: 'Make the real thing.', map: [420, 400] },
-  { num: 6, slug: 'test', name: 'Test + Improve', blurb: 'Let someone else use it, then change one thing.', map: [150, 330] },
-  { num: 7, slug: 'share', name: 'Share', blurb: 'Show the work to a real audience.', map: [150, 470] },
+  { num: 6, slug: 'test', name: 'Test + Improve', blurb: 'Let someone else use it, then change one thing.', map: [175, 335] },
+  { num: 7, slug: 'share', name: 'Share', blurb: 'Show the work to a real audience.', map: [160, 465] },
 ];
 
 export const TOOLS = [

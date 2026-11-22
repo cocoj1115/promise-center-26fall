@@ -22,7 +22,7 @@ a { color: var(--green); }
 a:hover { color: var(--black); }
 img { max-width: 100%; display: block; }
 :focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
-.wrap { max-width: 1120px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.wrap { max-width: 1280px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
 .caption { color: var(--caption); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
