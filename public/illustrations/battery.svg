@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 170" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <filter id="f" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="9" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter>
+  </defs>
+  <g filter="url(#f)">
+    <rect x="48" y="12" width="24" height="14" rx="4" fill="#f3f3f3" stroke="#337657" stroke-width="4"/>
+    <rect x="30" y="24" width="60" height="112" rx="16" fill="#fce40c" stroke="#337657" stroke-width="4.5"/>
+    <path d="M30 108h60v12c0 9-7 16-16 16H46c-9 0-16-7-16-16z" fill="#d2f6a2" stroke="#337657" stroke-width="4"/>
+    <path d="M60 36v14M53 43h14" stroke="#337657" stroke-width="4"/>
+    <circle cx="49" cy="72" r="4" fill="#337657"/>
+    <circle cx="71" cy="72" r="4" fill="#337657"/>
+    <path d="M53 84q7 7 14 0" stroke="#337657" stroke-width="3.5"/>
+    <ellipse cx="41" cy="82" rx="5" ry="3.3" fill="#e45454" opacity=".75"/>
+    <ellipse cx="79" cy="82" rx="5" ry="3.3" fill="#e45454" opacity=".75"/>
+    <path d="M30 80c-8-2-14-8-17-16M90 80c8 2 13 8 16 16" stroke="#337657" stroke-width="4"/>
+    <path d="M48 136l-4 20M72 136l4 20M36 156h10M74 156h10" stroke="#337657" stroke-width="4"/>
+  </g>
+</svg>
