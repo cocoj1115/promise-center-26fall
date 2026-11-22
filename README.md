@@ -29,7 +29,7 @@ Site switches live in **`src/config.js`**:
 
 ## Design
 
-Colours, type and texture follow the Park Fête illustration reference: lime `#D2F6A2`, green `#337657`, grey `#F3F3F3`, cream `#FBFFD9`, pink `#F9D7E5`, red `#E45454` (decoration only), Helvetica Neue for text, hand-cut lettering for titles (`src/lib/lettering.js`), and felt-edged borders (the `#felt` SVG filter in `src/layouts/Base.astro`). The illustrations in `public/illustrations/` (bulb, battery, quiz board, pencil and card) are original SVGs drawn for this site; nothing is copied from Park Fête.
+Colours, type and texture follow the Park Fête illustration reference: lime `#D2F6A2`, green `#337657`, grey `#F3F3F3`, cream `#FBFFD9`, pink `#F9D7E5`, red `#E45454` (decoration only), Helvetica Neue for text, hand-cut lettering for titles (`src/lib/lettering.js`), and felt-edged borders (the `#felt` SVG filter in `src/layouts/Base.astro`). The illustrations in `public/illustrations/` (bear, elephant, cat, bee) are from [Fuzzy Friends by Manuela Langella](https://blush.design/artists/jP1IppuYCnxSXmQ2r7g9/manuela-langella) on Blush, free for commercial use under the Blush license, recoloured to the site palette and credited in the footer. `bulb.svg` (the favicon) was drawn for this site.
 
 ## Running locally
 
