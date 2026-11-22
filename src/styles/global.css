@@ -63,6 +63,8 @@ img { max-width: 100%; display: block; }
 .lede { margin: 0 auto; max-width: 760px; font-size: 20px; line-height: 1.5; }
 
 /* Decorations */
+.doodle { display: inline-grid; place-items: center; width: 84px; height: 84px; border-radius: 50%; background: var(--lime); flex: none; }
+.doodle img { width: 50px; height: 50px; object-fit: contain; }
 .deco { position: absolute; pointer-events: none; user-select: none; }
 
 /* Photo wall */
