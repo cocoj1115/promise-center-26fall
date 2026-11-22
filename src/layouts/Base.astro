@@ -24,6 +24,14 @@ const pageTitle = title ? `${title} | Promise Center Toolkit` : 'Promise Center 
         </filter>
       </defs>
     </svg>
+    <header class="wrap site-header">
+      <a class="brand" href={base}>Promise Center Toolkit</a>
+      <nav aria-label="Main">
+        <a href={base} aria-current={current === 'toolkit' ? 'page' : undefined}>Toolkit</a>
+        <a href={`${base}sessions/`} aria-current={current === 'sessions' ? 'page' : undefined}>Run a session</a>
+        <a href={`${base}learned/`} aria-current={current === 'learned' ? 'page' : undefined}>What we learned</a>
+      </nav>
+    </header>
     <main>
       <slot />
     </main>

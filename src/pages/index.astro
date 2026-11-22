@@ -130,37 +130,17 @@ const burst = pts.join(' ');
       <img class="deco hide-sm" src={ill('bear.png')} alt="" width="245" height="400" style="left: -90px; bottom: -10px; height: 210px; width: auto" />
     </div>
   </section>
-  <nav class="tracker" aria-label="Jump to a zone">
-    <ol>
-      {ZONES.map((z) => (
-        <li><a href={`#${z.slug}`} data-zone={z.num}><span class="t-dot">{z.num}</span><span class="t-name">{z.name}</span></a></li>
-      ))}
-    </ol>
-  </nav>
 
   <script>
     const zones = document.querySelectorAll('.zone');
-    const links = document.querySelectorAll('.tracker a');
-    const tracker = document.querySelector('.tracker');
     document.documentElement.classList.add('js');
-    const setActive = (n) => links.forEach((a) => a.classList.toggle('active', a.dataset.zone === n));
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
           e.target.classList.add('in');
-          setActive(e.target.dataset.zone);
         }
       });
     }, { rootMargin: '-35% 0px -45% 0px' });
     zones.forEach((z) => io.observe(z));
-    const first = zones[0];
-    const last = zones[zones.length - 1];
-    const onScroll = () => {
-      const y = window.scrollY + window.innerHeight * 0.5;
-      const show = first && y > first.offsetTop && y < last.offsetTop + last.offsetHeight + 200;
-      tracker.classList.toggle('show', Boolean(show));
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
   </script>
 </Base>
