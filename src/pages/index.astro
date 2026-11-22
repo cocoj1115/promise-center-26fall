@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Lettering from '../components/Lettering.astro';
-import { ZONES, ROUTINES, toolsInZone, sessionLabel } from '../data/toolkit.js';
+import { ZONES, toolsInZone, sessionLabel } from '../data/toolkit.js';
 const base = import.meta.env.BASE_URL;
 const ill = (f) => `${base}illustrations/${f}`;
 
@@ -43,19 +43,17 @@ const burst = pts.join(' ');
 
   <section style="padding: 80px 24px; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; position: relative">
     <Lettering text="7 Zones" height={70} label="Seven zones" />
-    <p class="lede">Everything we used to run a six-week tech design project with kids aged 8 to 13. Pick a zone, take a tool, print it, and use it in your next session.</p>
+    <p class="lede">A six-week program that teaches kids human-centered technology design through hands-on activities. Pick a zone, take a tool, and try it out in your next session!</p>
   </section>
 
   <section class="wrap" aria-labelledby="map-title" style="padding-bottom: 72px">
     <div class="brochure">
       <nav class="brochure-list" aria-label="Zones">
-        <Lettering text="Promise" height={40} label="Promise Center" />
         <ol>
           {ZONES.map((z) => (
             <li><a href={`#${z.slug}`}><span class="num-dot">{z.num}</span><span class="zname">{z.name} zone</span></a></li>
           ))}
         </ol>
-        <p style="margin: auto 0 0; padding-top: 16px; font-size: 13px">A place where anyone can run a tech design project with kids.</p>
       </nav>
       <div class="brochure-map">
         <svg viewBox="0 0 840 520" role="img" aria-labelledby="map-title">
@@ -82,12 +80,6 @@ const burst = pts.join(' ');
     </div>
   </section>
 
-  <section class="wrap" style="padding-bottom: 64px">
-    <div class="routines">
-      <h2>Every session</h2>
-      {ROUTINES.map((r) => <span class="pill felt">{r}</span>)}
-    </div>
-  </section>
 
   {ZONES.map((z, i) => (
     <section class="zone wrap" id={z.slug}>
