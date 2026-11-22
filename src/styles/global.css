@@ -133,9 +133,11 @@ img { max-width: 100%; display: block; }
 .prev-next { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding: 24px 0 64px; font-size: 16px; }
 
 /* Landing: hero + kids' work fill the first screen */
-.landing { min-height: calc(100vh - 68px); display: flex; flex-direction: column; }
-.landing .hero { flex: 1; justify-content: center; padding-top: 40px; padding-bottom: 48px; }
-.landing .grid-panel { overflow: visible; }
+.landing { min-height: 100vh; display: flex; flex-direction: column; }
+.landing .hero { flex: none; justify-content: center; padding-top: 48px; padding-bottom: 36px; }
+.landing .grid-panel { overflow: visible; flex: 1; display: flex; align-items: center; padding: 72px 0 !important; }
+.landing .photos { width: 100%; gap: 40px; }
+.landing .photo .ph { aspect-ratio: 1 / 1; font-size: 16px; }
 .cat { right: 2%; bottom: -54px; width: 150px; height: auto; z-index: 2; }
 
 /* Zone reveal on scroll (only with JS and when motion is OK) */
