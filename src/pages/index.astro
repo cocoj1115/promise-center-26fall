@@ -20,6 +20,7 @@ for (let k = 0; k < spikes * 2; k++) {
 const burst = pts.join(' ');
 ---
 <Base>
+  <div class="landing">
   <section class="hero" id="top">
     <div style="display: flex; align-items: flex-end; justify-content: center; gap: 20px; max-width: 100%">
       <img class="hide-sm" src={ill('elephant-grey.png')} alt="" width="380" height="400" style="height: 150px; width: auto; flex: none" />
@@ -38,8 +39,9 @@ const burst = pts.join(' ');
         </figure>
       ))}
     </div>
-    <img class="deco hide-sm" src={ill('cat.png')} alt="" width="400" height="344" style="right: 3%; bottom: 6px; width: 170px; height: auto" />
+    <img class="deco hide-sm cat" src={ill('cat.png')} alt="" width="400" height="344" />
   </section>
+  </div>
 
   <section style="padding: 80px 24px; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; position: relative">
     <Lettering text="7 Zones" height={70} label="Seven zones" />
@@ -87,7 +89,7 @@ const burst = pts.join(' ');
 
 
   {ZONES.map((z, i) => (
-    <section class="zone wrap" id={z.slug}>
+    <section class="zone wrap reveal" id={z.slug} data-zone={z.num}>
       <div class="zone-inner">
         <div class="zone-label" style={`background: ${i % 2 === 0 ? 'var(--grey)' : 'var(--cream)'}`}>
           <Lettering text={z.name} height={80} maxWidth="360px" />
@@ -128,4 +130,37 @@ const burst = pts.join(' ');
       <img class="deco hide-sm" src={ill('bear.png')} alt="" width="245" height="400" style="left: -90px; bottom: -10px; height: 210px; width: auto" />
     </div>
   </section>
+  <nav class="tracker" aria-label="Jump to a zone">
+    <ol>
+      {ZONES.map((z) => (
+        <li><a href={`#${z.slug}`} data-zone={z.num}><span class="t-dot">{z.num}</span><span class="t-name">{z.name}</span></a></li>
+      ))}
+    </ol>
+  </nav>
+
+  <script>
+    const zones = document.querySelectorAll('.zone');
+    const links = document.querySelectorAll('.tracker a');
+    const tracker = document.querySelector('.tracker');
+    document.documentElement.classList.add('js');
+    const setActive = (n) => links.forEach((a) => a.classList.toggle('active', a.dataset.zone === n));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          setActive(e.target.dataset.zone);
+        }
+      });
+    }, { rootMargin: '-35% 0px -45% 0px' });
+    zones.forEach((z) => io.observe(z));
+    const first = zones[0];
+    const last = zones[zones.length - 1];
+    const onScroll = () => {
+      const y = window.scrollY + window.innerHeight * 0.5;
+      const show = first && y > first.offsetTop && y < last.offsetTop + last.offsetHeight + 200;
+      tracker.classList.toggle('show', Boolean(show));
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
 </Base>
