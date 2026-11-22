@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+const { title, description = 'Ready-to-use tools for running a human-centered tech design project with kids.', current = 'toolkit' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const pageTitle = title ? `${title} | Promise Center Toolkit` : 'Promise Center Toolkit';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href={`${base}illustrations/duck.png`} />
+  </head>
+  <body>
+    <svg width="0" height="0" aria-hidden="true" style="position: absolute">
+      <defs>
+        <filter id="felt" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="3" result="wobble" />
+          <feDisplacementMap in="SourceGraphic" in2="wobble" scale="5" xChannelSelector="R" yChannelSelector="G" result="wavy" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="8" result="fuzz" />
+          <feDisplacementMap in="wavy" in2="fuzz" scale="3" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
+    </svg>
+    <header class="wrap site-header">
+      <a class="brand" href={base}>Promise Center Toolkit</a>
+      <nav aria-label="Main">
+        <a href={base} aria-current={current === 'toolkit' ? 'page' : undefined}>Toolkit</a>
+        <a href={`${base}sessions/`} aria-current={current === 'sessions' ? 'page' : undefined}>Run a session</a>
+        <a href={`${base}learned/`} aria-current={current === 'learned' ? 'page' : undefined}>What we learned</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>Promise Center Toolkit | Fall 2026</p>
+      <p>Made by a CMU team with Promise Center of Homewood. No children’s names or faces appear on this site.</p>
+      <p>Illustrations and visual style from Park Fête (Illustration Design, 2026), used with credit.</p>
+    </footer>
+  </body>
+</html>

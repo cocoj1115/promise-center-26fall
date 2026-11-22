@@ -1,0 +1,134 @@
+---
+import Base from '../layouts/Base.astro';
+import Lettering from '../components/Lettering.astro';
+import { ZONES, ROUTINES, toolsInZone, sessionLabel } from '../data/toolkit.js';
+const base = import.meta.env.BASE_URL;
+const ill = (f) => `${base}illustrations/${f}`;
+
+const photos = [
+  ['Photo: a light-up name tag', 'Session 1', -2],
+  ['Photo: a team’s evidence card', 'Session 2', 1.5],
+  ['Photo: Sam’s storyboard frames', 'Session 5', -1],
+  ['Photo: a quiz board, front and back', 'Session 6', 2],
+];
+
+const spikes = 26, pts = [];
+for (let k = 0; k < spikes * 2; k++) {
+  const a = (Math.PI * k) / spikes, r = k % 2 === 0 ? 1 : 0.84;
+  pts.push(`${(320 + Math.cos(a) * 308 * r).toFixed(1)},${(246 + Math.sin(a) * 236 * r).toFixed(1)}`);
+}
+const burst = pts.join(' ');
+---
+<Base>
+  <section class="hero" id="top">
+    <div style="display: flex; align-items: flex-end; justify-content: center; gap: 20px; max-width: 100%">
+      <img class="hide-sm deco-inline" src={ill('tree.png')} alt="" width="86" height="148" style="height: 120px; width: auto; flex: none" />
+      <Lettering text="Toolkit" height={150} />
+      <img class="hide-sm deco-inline" src={ill('duck.png')} alt="" width="112" height="104" style="height: 96px; width: auto; flex: none" />
+    </div>
+    <p class="sub">Promise Center of Homewood | Fall 2026</p>
+  </section>
+
+  <section class="grid-panel" aria-label="Kids’ work" style="padding: 64px 0; position: relative">
+    <div class="wrap photos">
+      {photos.map(([label, caption, rot]) => (
+        <figure class="photo felt" style={`transform: rotate(${rot}deg)`}>
+          <div class="ph">{label}</div>
+          <figcaption>{caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+    <img class="deco hide-sm" src={ill('caterpillar.png')} alt="" width="144" height="82" style="right: 4%; bottom: 12px; width: 130px; height: auto" />
+  </section>
+
+  <section style="padding: 80px 24px; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center">
+    <Lettering text="7 Zones" height={70} label="Seven zones" />
+    <p class="lede">Everything we used to run a six-week tech design project with kids aged 8 to 13. Pick a zone, take a tool, print it, and use it in your next session.</p>
+  </section>
+
+  <section class="wrap" aria-labelledby="map-title" style="padding-bottom: 72px">
+    <div class="brochure">
+      <nav class="brochure-list" aria-label="Zones">
+        <Lettering text="Promise" height={40} label="Promise Center" />
+        <ol>
+          {ZONES.map((z) => (
+            <li><a href={`#${z.slug}`}><span class="num-dot">{z.num}</span><span class="zname">{z.name} zone</span></a></li>
+          ))}
+        </ol>
+        <p style="margin: auto 0 0; padding-top: 16px; font-size: 13px">A place where anyone can run a tech design project with kids.</p>
+      </nav>
+      <div class="brochure-map">
+        <svg viewBox="0 0 840 520" role="img" aria-labelledby="map-title">
+          <title id="map-title">Map of the seven zones</title>
+          <path filter="url(#felt)" d="M-20 120 C 160 60, 260 200, 420 150 S 700 40, 860 130" fill="none" stroke="#f9d7e5" stroke-width="22" stroke-linecap="round" />
+          <path filter="url(#felt)" d="M-20 380 C 140 300, 300 460, 470 380 S 720 300, 860 400" fill="none" stroke="#f9d7e5" stroke-width="22" stroke-linecap="round" />
+          <path filter="url(#felt)" d="M300 -20 C 260 140, 360 300, 300 540" fill="none" stroke="#f9d7e5" stroke-width="18" stroke-linecap="round" />
+          <path filter="url(#felt)" d="M600 -20 C 640 180, 540 320, 620 540" fill="none" stroke="#f9d7e5" stroke-width="18" stroke-linecap="round" />
+          <line x1="280" y1="0" x2="280" y2="520" stroke="#ffffff" stroke-width="3" />
+          <line x1="560" y1="0" x2="560" y2="520" stroke="#ffffff" stroke-width="3" />
+          {ZONES.map((z) => {
+            const [mx, my] = z.map;
+            return (
+              <a class="zl" href={`#${z.slug}`}>
+                <ellipse filter="url(#felt)" class="blob" cx={mx} cy={my} rx="92" ry="62" fill="#d2f6a2" opacity="0.9" />
+                <circle cx={mx - 66} cy={my + 4} r="11" fill="#e45454" />
+                <text x={mx - 66} y={my + 4} dy="5" text-anchor="middle" fill="#ffffff" style="font-family: var(--font); font-size: 13px; font-weight: 700">{z.num}</text>
+                <text x={mx - 48} y={my + 4} dy="5" fill="#e45454" style="font-family: var(--font); font-size: 15px; letter-spacing: .04em">{z.name.toUpperCase()} ZONE</text>
+              </a>
+            );
+          })}
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-bottom: 64px">
+    <div class="routines">
+      <h2>Every session</h2>
+      {ROUTINES.map((r) => <span class="pill felt">{r}</span>)}
+    </div>
+  </section>
+
+  {ZONES.map((z, i) => (
+    <section class="zone wrap" id={z.slug}>
+      <div class="zone-inner">
+        <div class="zone-label" style={`background: ${i % 2 === 0 ? 'var(--grey)' : 'var(--cream)'}`}>
+          <Lettering text={z.name} height={80} maxWidth="360px" />
+          <div class="row">
+            <p class="big">{`ZONE\n0${z.num}`}</p>
+            <p class="small">{z.blurb}</p>
+          </div>
+        </div>
+        <div class="zone-tools">
+          {toolsInZone(z.num).map((t) => (
+            <article class="tool-row felt-line">
+              <div class="body">
+                <h3><a href={`${base}tools/${t.slug}/`}>{t.name}</a></h3>
+                <p>{t.what}</p>
+                <p class="meta">{t.time} · {sessionLabel(t.session)}</p>
+              </div>
+              <a href={`${base}tools/${t.slug}/`} style="font-size: 16px; font-weight: 400" aria-label={`Open ${t.name}`}>Open tool</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section aria-label="A kid’s words" style="padding: 32px 24px 96px; position: relative">
+    <div class="burst">
+      <svg viewBox="0 0 640 492" aria-hidden="true">
+        <defs>
+          <pattern id="ht-burst" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1.6" fill="#ffffff" /></pattern>
+        </defs>
+        <polygon points={burst} fill="#d2f6a2" />
+        <polygon points={burst} fill="url(#ht-burst)" />
+      </svg>
+      <div class="inner">
+        <p class="q">“Oh, I got it, I know how this works.”</p>
+        <p style="margin: 0; font-size: 15px">A 10-year-old, Session 5</p>
+      </div>
+      <img class="deco hide-sm" src={ill('rocks.png')} alt="" width="100" height="212" style="left: -40px; bottom: -10px; height: 150px; width: auto" />
+    </div>
+  </section>
+</Base>

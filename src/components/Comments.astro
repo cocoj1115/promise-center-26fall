@@ -1,0 +1,33 @@
+---
+import { GISCUS } from '../config.js';
+const ready = Boolean(GISCUS.repoId && GISCUS.categoryId);
+const { term } = Astro.props;
+---
+<div class="panel panel-grey" style="flex: 1 1 420px">
+  <h2 style="margin: 0; font-size: 24px; font-weight: 400">Tried it? Tell us how it went</h2>
+  {ready ? (
+    <>
+      <p style="margin: 0; font-size: 16px">Comments use GitHub Discussions. Sign in with GitHub to join in.</p>
+      <script
+        src="https://giscus.app/client.js"
+        data-repo={GISCUS.repo}
+        data-repo-id={GISCUS.repoId}
+        data-category={GISCUS.category}
+        data-category-id={GISCUS.categoryId}
+        data-mapping="specific"
+        data-term={term}
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async
+      ></script>
+    </>
+  ) : (
+    <p style="margin: 0; font-size: 16px">Comments are coming soon. They will use GitHub Discussions.</p>
+  )}
+</div>

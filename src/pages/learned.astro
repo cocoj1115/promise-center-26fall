@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import Lettering from '../components/Lettering.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="What we learned" current="learned">
+  <section class="hero">
+    <Lettering text="What we learned" height={90} />
+    <p class="sub">Reflections from the teaching team | Coming soon</p>
+    <p class="lede">How running this project changed the way we think about evidence of learning, structure and student ownership. In the meantime, each <a href={base}>tool page</a> has a note on what went well or awry.</p>
+  </section>
+</Base>

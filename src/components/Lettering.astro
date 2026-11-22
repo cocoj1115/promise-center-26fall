@@ -1,0 +1,20 @@
+---
+// Hand-cut lettering in the Park Fête style. `height` is the rendered height in px.
+import { lettering } from '../lib/lettering.js';
+const { text, height = 80, label, maxWidth = '100%' } = Astro.props;
+const l = lettering(text);
+const id = 'ht-' + text.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + Math.round(height);
+const width = Math.round(height * l.ratio);
+---
+<svg viewBox={l.viewBox} style={`width: ${width}px; max-width: ${maxWidth}; height: auto`} role="img" aria-label={label ?? text}>
+  <defs>
+    <pattern id={id} width="4" height="4" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.6" fill="#d2f6a2" opacity="0.22" />
+    </pattern>
+  </defs>
+  <path d={l.d} transform="translate(5 5)" fill="none" stroke="#f9d7e5" stroke-width="38" stroke-linecap="square" />
+  <path d={l.d} fill="none" stroke="#ffffff" stroke-width="38" stroke-linecap="square" />
+  <path d={l.d} fill="none" stroke="#337657" stroke-width="26" stroke-linecap="square" />
+  <path d={l.d} fill="none" stroke={`url(#${id})`} stroke-width="26" stroke-linecap="square" />
+  <path d={l.eyes} fill="#e45454" />
+</svg>

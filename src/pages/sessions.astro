@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import Lettering from '../components/Lettering.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Run a session" current="sessions">
+  <section class="hero">
+    <Lettering text="Sessions" height={110} />
+    <p class="sub">Six ready-to-teach session plans | Coming soon</p>
+    <p class="lede">We are writing up each of our six sessions as a plan you can follow start to finish. Until then, every tool we used is in the <a href={base}>toolkit</a>.</p>
+  </section>
+</Base>
