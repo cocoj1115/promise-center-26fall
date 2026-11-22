@@ -25,7 +25,6 @@ const titleHeight = tool.name.length > 16 ? 80 : 110;
   </nav>
 
   <section class="hero" style="padding-top: 56px">
-    <span class="doodle felt"><img src={`${base}doodles/${zone.slug}.svg`} alt="" /></span>
     <Lettering text={tool.name.replace(/[’,?]/g, (c) => (c === '’' ? "'" : ''))} height={titleHeight} label={tool.name} maxWidth="100%" />
     <p class="sub">Zone 0{zone.num} {zone.name} | {tool.time} | {sessionLabel(tool.session)}</p>
     <p class="lede" style="margin-top: 8px">{tool.intro}</p>

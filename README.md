@@ -29,7 +29,7 @@ Site switches live in **`src/config.js`**:
 
 ## Design
 
-Colours, type and texture follow the Park Fête illustration reference: lime `#D2F6A2`, green `#337657`, grey `#F3F3F3`, cream `#FBFFD9`, pink `#F9D7E5`, red `#E45454` (decoration only), Helvetica Neue for text, hand-cut lettering for titles (`src/lib/lettering.js`), and felt-edged borders (the `#felt` SVG filter in `src/layouts/Base.astro`). Small illustrations in `public/illustrations/` are cropped from Park Fête and credited in the footer. Doodle icons in `public/doodles/` are from Khushmeen Sidhu’s Doodle Icons (CC0, free to use and modify), recoloured to the site green.
+Colours, type and texture follow the Park Fête illustration reference: lime `#D2F6A2`, green `#337657`, grey `#F3F3F3`, cream `#FBFFD9`, pink `#F9D7E5`, red `#E45454` (decoration only), Helvetica Neue for text, hand-cut lettering for titles (`src/lib/lettering.js`), and felt-edged borders (the `#felt` SVG filter in `src/layouts/Base.astro`). Small illustrations in `public/illustrations/` are cropped from Park Fête and credited in the footer.
 
 ## Running locally
 
